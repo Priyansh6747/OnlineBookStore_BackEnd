@@ -9,7 +9,7 @@
 
     $query = isset($_GET['q']) ? $_GET['q'] : '';
     $sql = "SELECT * FROM book WHERE Name LIKE '%$query%'";
-    $result = $conn->query($sql);
+    $result = $connect->query($sql);
     $book = [];
     if($result->num_rows > 0) while ($row = $result->fetch_assoc())
         $book[] = $row;
