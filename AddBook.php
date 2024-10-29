@@ -18,10 +18,10 @@
         $rating = $data_decoded["rating"];
         $authorName = $data_decoded["authorName"];
         $authorBio = $data_decoded["authorBio"];
-        $authorURL = $data_decoded["authorURL"];
+        $authorURL = $data_decoded["Author_URL"];
 
         $query = $connect->prepare("INSERT INTO book(Name, URL, Price, Rating) VALUES (?, ?, ?, ?)");
-        $query->bind_param("ssss", $BName, $url, $price, $rating);
+        $query->bind_param("ssdd", $BName, $url, $price, $rating);
 
         if ($query->execute()) {
             $sql = $connect->query("SELECT B_id FROM book WHERE Name = '$BName' AND URL = '$url'");
