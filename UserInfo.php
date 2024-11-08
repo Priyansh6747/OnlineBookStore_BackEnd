@@ -16,7 +16,7 @@
     //directly accessing the username like we access the data in other languages stored in array
     $username = $data_decoded['Username'];
 
-    $sql_result = $connect->prepare("Select Password from customer where username = ?");
+    $sql_result = $connect->prepare("Select Password,UID from customer where username = ?");
     //binding the username to the result, s means the username is string 
     $sql_result->bind_param("s",$username);
     if(!$sql_result)
