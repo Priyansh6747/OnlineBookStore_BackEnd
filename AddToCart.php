@@ -12,8 +12,8 @@
         $BID = $data_decoded["BID"];
         $quatity = $data_decoded["Quantity"];
 
-        $Query  = $connect->prepare("INSERT INTO `cart` (`UID`, `B_id`, `Quantity`) VALUES ('?', '?', '?');");
-        $Query->bind_param("sss",$UID,$BID,$quatity);
+        $Query = $connect->prepare("INSERT INTO `cart` (`UID`, `B_id`, `Quantity`) VALUES (?, ?, ?)");
+        $Query->bind_param("sss", $UID, $BID, $quantity);
 
         if ($Query->execute()) 
             echo json_encode(["message" => "Book added successfully"]);
