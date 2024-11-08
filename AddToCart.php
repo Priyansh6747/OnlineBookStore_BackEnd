@@ -10,10 +10,10 @@
     if($data_decoded){
         $UID = $data_decoded["UID"];
         $BID = $data_decoded["BID"];
-        $quatity = $data_decoded["Quantity"];
+        $quantity = intval($data_decoded["Quantity"]);
 
         $Query = $connect->prepare("INSERT INTO `cart` (`UID`, `B_id`, `Quantity`) VALUES (?, ?, ?)");
-        $Query->bind_param("sss", $UID, $BID, $quantity);
+        $Query->bind_param("ssi", $UID, $BID, $quantity);
 
         if ($Query->execute()) 
             echo json_encode(["message" => "Book added successfully"]);
