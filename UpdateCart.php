@@ -14,7 +14,7 @@
         $BID = $data_decoded["BID"];
         $quantity = $data_decoded["quantity"];
         $stmt = $connect->prepare("UPDATE `cart` SET `Quantity` = Quantity + ? WHERE `cart`.`UID` = ? AND `cart`.`B_id` = ?");
-        $stmt->bind_param("iii",$quantity,$BID,$UID);
+        $stmt->bind_param("iii",$quantity,$UID,$BID);
 
         if ($stmt->execute()) 
             echo json_encode(["message" => "cart Updated"]);
