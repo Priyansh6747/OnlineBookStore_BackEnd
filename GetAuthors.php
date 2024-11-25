@@ -16,6 +16,7 @@
     while($row = $sql_result->fetch_assoc())
         $data[] = $row;
 
+        // Convert PHP array to JSON and send it 
     echo json_encode($data);
     $connect->close();
 
